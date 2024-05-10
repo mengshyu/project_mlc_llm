@@ -2,8 +2,8 @@
 set -e
 
 ROOT=$PWD
-#REPO_URL="git@github.com:mengshyu/relax.git"
-REPO_URL="https://github.com/mengshyu/relax.git"
+REPO_URL="git@github.com:mengshyu/relax.git"
+#REPO_URL="https://github.com/mengshyu/relax.git"
 REPO_NAME=$(basename "$REPO_URL" | sed 's/\.git$//')
 RELAX_ROOT=$ROOT/$REPO_NAME
 BUILD_DIR=$RELAX_ROOT/build
@@ -32,14 +32,14 @@ function Build()
     echo "set(USE_LLVM \"$LLVM_CONFIG --ignore-libllvm\")" >> config.cmake
     echo "set(HIDE_PRIVATE_SYMBOLS ON)" >> config.cmake
     # GPU SDKs, turn on if needed
-    #echo "set(USE_CUDA   /usr/local/cuda-12.4)" >> config.cmake
-    #echo "set(USE_CUDA  ON)" >> config.cmake
-    #echo "set(USE_CUBLAS ON)" >> config.cmake
+    echo "set(USE_CUDA   /usr/local/cuda)" >> config.cmake
+    echo "set(USE_CUDA  ON)" >> config.cmake
+    echo "set(USE_CUBLAS ON)" >> config.cmake
     #echo "set(USE_CUTLASS OFF)" >> config.cmake
     echo "set(USE_METAL  OFF)" >> config.cmake
     echo "set(USE_VULKAN OFF)" >> config.cmake
     echo "set(USE_OPENCL ON)" >> config.cmake
-    #echo "set(CMAKE_CUDA_ARCHITECTURES 89)" >> config.cmake
+    echo "set(CMAKE_CUDA_ARCHITECTURES 75)" >> config.cmake
     # FlashInfer related, requires CUDA w/ compute capability 80;86;89;90
     #echo "set(USE_FLASHINFER ON)" >> config.cmake
     #echo "set(FLASHINFER_CUDA_ARCHITECTURES 89)" >> config.cmake

@@ -2,7 +2,7 @@
 set -e
 
 ROOT=$PWD
-REPO_URL="https://github.com/mlc-ai/mlc-llm"
+REPO_URL="git@github.com:mengshyu/mlc-llm.git"
 REPO_NAME=$(basename "$REPO_URL" | sed 's/\.git$//')
 MLC_LLM_ROOT=$ROOT/$REPO_NAME
 BUILD_DIR=$MLC_LLM_ROOT/build
