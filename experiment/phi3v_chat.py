@@ -15,6 +15,9 @@ from mlc_llm.conversation_template import ConvTemplateRegistry
 
 def get_test_image_2(config) -> data.ImageData:
     url = "https://www.ilankelman.org/stopsigns/australia.jpg"
+    #url = "https://www.ilankelman.org/music/mela08.jpg"
+    #url = "https://www.ilankelman.org/themes/birdaukcliffs.jpg"
+    #url = "https://i.redd.it/pr71wuygktj11.png"
     return data.ImageData.phi3v_from_url(url, config)
 
 
@@ -32,7 +35,7 @@ if __name__ == "__main__":
         model_config = json.load(file)
 
     prompts = [
-        [data.TextData("What is the meaning of life?")],
+        [data.TextData("<|user|>\nWhat is the meaning of life?<|end|>\n<|assistant|>\n")],
         [
             data.TextData("<|user|>\n"),
             get_test_image_2(model_config),
